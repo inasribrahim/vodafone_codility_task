@@ -23,23 +23,23 @@
             driver = DriverManager.getWebDriver();
         }
 
-        @Test
-        public void verifyUsernameAndNickNameAreWorkCorrectly() {
-         // TODO :: write a actions
-           WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-           driver.findElement(By.id("email")).sendKeys("ibrahimyahoo.com");
-           driver.findElement(By.id("nickname")).sendKeys("ss2");
-           driver.findElement(By.xpath("//button[@type='submit']")).click();
-            
-           Assert.assertTrue(driver.switchTo().alert().getText().contains("ibrahim@yahoo.com"));
-        }
         // @Test
-        // public void verifyInformativeMessageWithInvalidEmail() {
-        //     // TODO :: Email Error Message
-        //     driver.findElement(By.id("email")).sendKeys("ibrahimyahoo.com");
-        //     String emailError = driver.findElement(By.id("emailError")).getText();
-        //     Assert.assertEquals("Please enter a valid email address.",emailError);
+        // public void verifyUsernameAndNickNameAreWorkCorrectly() {
+        //  // TODO :: write a actions
+        //    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //    driver.findElement(By.id("email")).sendKeys("ibrahimyahoo.com");
+        //    driver.findElement(By.id("nickname")).sendKeys("ss2");
+        //    driver.findElement(By.xpath("//button[@type='submit']")).click();
+            
+        //    Assert.assertTrue(driver.switchTo().alert().getText().contains("ibrahim@yahoo.com"));
         // }
+        @Test
+        public void verifyInformativeMessageWithInvalidEmail() {
+            // TODO :: Email Error Message
+            driver.findElement(By.id("email")).sendKeys("ibrahimyahoo.com");
+            String emailError = driver.findElement(By.id("emailError")).getText();
+            Assert.assertEquals("Please enter a valid email address.",emailError);
+        }
         // @Test
         // public void verifyInformativeMessageWithInvalidNickName() throws InterruptedException {
         //     // TODO :: NickName Error Message
