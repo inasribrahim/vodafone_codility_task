@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Vodafone | Egypt</title>
+<meta charset="utf-8">
+<!-- CSS Files -->
+<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+<link rel="stylesheet" type="text/css" media="screen" href="menu/css/simple_menu.css">
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen">
+<!-- JS Files -->
+<script src="js/jquery.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/slides/slides.min.jquery.js"></script>
+<script src="js/cycle-slider/cycle.js"></script>
+<script src="js/nivo-slider/jquery.nivo.slider.js"></script>
+<script src="js/tabify/jquery.tabify.js"></script>
+<script src="js/prettyPhoto/jquery.prettyPhoto.js"></script>
+<script src="js/twitter/jquery.tweet.js"></script>
+<script src="js/scrolltop/scrolltopcontrol.js"></script>
+<script src="js/portfolio/filterable.js"></script>
+<script src="js/modernizr/modernizr-2.0.3.js"></script>
+<script src="js/easing/jquery.easing.1.3.js"></script>
+<script src="js/kwicks/jquery.kwicks-1.5.1.pack.js"></script>
+<script src="js/swfobject/swfobject.js"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- JavaScript for populating table -->
+<script>
+    $(document).ready(function(){
+        var models = [
+            { brand: 'Samsung', model: 'Samsung Galaxy A54', price: getRandomPrice(), },
+            { brand: 'Samsung', model: 'Samsung Note 10', price: getRandomPrice(), },
+            { brand: 'Samsung', model: 'Samsung s6', price: getRandomPrice(), },
+            { brand: 'Samsung', model: 'Samsung ultra s22', price: getRandomPrice(), }
+        ];
+
+        // Function to shuffle array
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        }
+
+        // Function to generate random price between 100 and 1000
+        function getRandomPrice() {
+            return Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+        }
+
+        // Shuffle the models array
+        models = shuffleArray(models);
+
+        // Populate table with shuffled models
+        var tableBody = $('#modelsTable tbody');
+        $.each(models, function(index, model) {
+            tableBody.append('<tr><td>' + model.brand + '</td><td>' + model.model + '</td><td id = "value">' + model.price + '</td></tr>');
+        });
+    });
+</script>
+
+
+<!-- FancyBox -->
+<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css" media="all">
+<script src="js/fancybox/jquery.fancybox-1.2.1.js"></script>
+</head>
+<body>
+<div class="header">
+  <!-- Logo/Title -->
+<div id="site_title"><a href="index.html"> <img src="https://eshop.vodafone.com.eg/en/assets/icon-center/vf_icon.svg" alt="Vodafone Logo" width="50px" height="50px"></a> </div>
+  <!-- Main Menu -->
+  <ol id="menu">
+    <li><a href="challangeOne.html">Challange 1</a>
+      <!-- sub menu -->
+      <ol>
+          <li><a href="#">Selenium</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">Jenkins</a></li>
+            <li><a href="#">Git</a></li>
+            <li><a href="#">Postman</a></li>
+            <li><a href="#">Jira</a></li>
+            <li><a href="#">Jira</a></li>
+            <li><a href="#">Cucumber</a></li>
+            <li><a href="#">Docker</a></li>
+      </ol>
+    </li>
+    <!-- end sub menu -->
+    <li><a href="challangeTwo.html">Challange 2</a>
+      <!-- sub menu -->
+      <ol>
+        <li><a href="#">Motivate</a></li>
+          <li><a href="#">Inspire</a></li>
+          <li><a href="#">Uplift</a></li>
+           <li><a href="#" style="text-decoration: line-through; text-decoration-color: red; text-decoration-style: solid; text-decoration-thickness: 2px;">Defeat</a></li>
+
+      </ol>
+    </li>
+    <!-- end sub menu -->
+    <li><a href="challangeThree.html">Challange 3</a></li>
+    <li><a href="challangeFour.html">Challange 4</a></li>
+    <!-- end sub menu -->
+   
+  </ol>
+</div>
+<!-- END header -->
+<div id="container">
+  <h1>Automation Challange</h1>
+  <div class="one-half">
+    <div class="heading_bg">
+      <h2>Dynamic Table</h2>
+    </div>
+     <table border="1" id="modelsTable">
+                <thead>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                </thead>
+                <tbody>
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+  <!-- END Second Column -->
+  <div style="clear:both; height: 40px"></div>
+</div>
+<!-- close container -->
+<div id="footer">
+  <!-- First Column -->
+  <div class="one-fourth">
+    <h3>Challanges Links</h3>
+    <ul class="footer_links">
+      <li><a href="#">Challange 1</a></li>
+      <li><a href="#">Challange 2</a></li>
+      <li><a href="#">Challange 3</a></li>
+      <li><a href="#">Challange 4</a></li>
+      <li><a href="#">Challange 5</a></li>
+    </ul>
+  </div>
+  <!-- Second Column -->
+  <div class="one-fourth">
+    <h3>Challanges Links</h3>
+    <ul class="footer_links">
+      <li><a href="#">Challange 1</a></li>
+      <li><a href="#">Challange 2</a></li>
+      <li><a href="#">Challange 3</a></li>
+      <li><a href="#">Challange 4</a></li>
+      <li><a href="#">Challange 5</a></li>
+    </ul>
+  </div>
+  <!-- Third Column -->
+  <div class="one-fourth">
+    <h3>Motivation</h3>
+    Welcome to Vodafone's Testing Challenge! Your expertise ensures quality. Embrace challenges, grow, and excel in software testing. Best wishes!.
+    <div id="social_icons"><br>
+      VF © <a href="">Testing Team</a> </div>
+  </div>
+  <!-- Fourth Column -->
+  <div class="one-fourth last">
+    <h3>Socialize</h3>
+    <img src="img/icon_fb.png" alt=""> <img src="img/icon_twitter.png" alt=""> <img src="img/icon_in.png" alt=""> </div>
+  <div style="clear:both"></div>
+</div>
+<!-- END footer -->
+</body>
+</html>
