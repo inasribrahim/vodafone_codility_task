@@ -1,10 +1,14 @@
 package com.vodafone.codility_task.driver;
 
 import com.vodafone.codility_task.read_properties.ReadProperties;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.time.Duration;
 
 
 public final class Driver {
@@ -12,19 +16,24 @@ public final class Driver {
     public static void initDriver(String browserName,String challengeKey){
         String challengePaths = System.getProperty("user.dir")
                 .concat("/src/test/resources/web_automation_challenges/");
-
-        if (isNull(DriverManager.getWebDriver())){
-            if(browserName.equalsIgnoreCase("chrome")){
-                  ChromeOptions options = new ChromeOptions();
-                  System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		          options.addArguments("--headless");
-		          options.addArguments("--disable-gpu");
-		          options.addArguments("--no-sandbox");
-		          options.addArguments("--disable-dev-shm-usage");
-                  DriverManager.setWebDriver(new ChromeDriver(options));
-            }
-            DriverManager.getWebDriver().navigate().to(challengePaths.concat(challengeKey));
+       try {
+        if(browserName.equalsIgnoreCase("chrome")){
+            ChromeOptions options = new ChromeOptions();
+            System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            DriverManager.setWebDriver(new ChromeDriver(options));
         }
+        WebDriver driver = DriverManager.getWebDriver();
+        driver.navigate().to(challengePaths.concat(challengeKey));
+        // Wait until page is loaded (example with 30-second timeout)
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.urlContains(challengeKey)); // Adjust condition as needed
+    } catch (Exception e) {
+        e.printStackTrace(); 
+    }
     }
     public static void closeDriver(){
         if(isNotNull(DriverManager.getWebDriver())){
