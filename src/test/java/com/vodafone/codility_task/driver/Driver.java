@@ -30,15 +30,17 @@ public final class Driver {
             DriverManager.setWebDriver(new ChromeDriver(options));
         }
         WebDriver driver = DriverManager.getWebDriver();
-        String htmlContent = "";
-            try {
-                htmlContent = Files.readString(Paths.get(challengePaths.concat(challengeKey)));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        driver.get("data:text/html;charset=utf-8,"+htmlContent);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.urlContains(challengeKey)); // Adjust condition as needed
+        // String htmlContent = "";
+        //     try {
+        //         htmlContent = Files.readString(Paths.get(challengePaths.concat(challengeKey)));
+        //     } catch (IOException e) {
+        //         e.printStackTrace();
+        //     }
+        // driver.get("data:text/html;charset=utf-8,"+htmlContent);
+        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        // wait.until(ExpectedConditions.urlContains(challengeKey)); // Adjust condition as needed
+         driver.get("file:"+challengePaths.concat(challengeKey));
+
     } catch (Exception e) {
         e.printStackTrace(); 
     }
