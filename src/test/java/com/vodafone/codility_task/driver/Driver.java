@@ -24,6 +24,7 @@ public final class Driver {
             options.addArguments("--disable-gpu");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
+            options.setAcceptInsecureCerts(true);
             DriverManager.setWebDriver(new ChromeDriver(options));
         }
         WebDriver driver = DriverManager.getWebDriver();
