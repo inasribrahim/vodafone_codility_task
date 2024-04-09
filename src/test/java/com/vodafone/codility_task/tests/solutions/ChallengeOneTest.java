@@ -30,6 +30,8 @@
            driver.findElement(By.id("email")).sendKeys("ibrahimyahoo.com");
            driver.findElement(By.id("nickname")).sendKeys("ss2");
            driver.findElement(By.xpath("//button[@type='submit']")).click();
+           WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+           wait.until(ExpectedConditions.alertIsPresent());
             
            Assert.assertTrue(driver.switchTo().alert().getText().contains("ibrahim@yahoo.com"));
         }
