@@ -26,19 +26,19 @@
         @Test
         public void verifyUsernameAndNickNameAreWorkCorrectly() {
          // TODO :: write a actions
-            System.out.println("URL :-" + driver.getCurrentUrl());
-            Assert.assertEquals("Vodafone | Egypt",driver.getTitle());
-//            System.out.println("Title :-" + driver.getTitle());
-//            System.out.println("Source Code :-" +driver.getPageSource());
-//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//            WebElement emailInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("email")));
-//            WebElement nickNameInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("emailInput")));
-//            WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-//
-//            emailInput.sendKeys("ibrahim@yahoo.com");
-//            nickNameInput.sendKeys("hima");
-//            submitButton.click();
-//            Assert.assertTrue(driver.switchTo().alert().getText().contains("ibrahim@yahoo.com"));
+            // System.out.println("URL :-" + driver.getCurrentUrl());
+            // Assert.assertEquals("Vodafone | Egypt",driver.getTitle());
+           System.out.println("Title :-" + driver.getTitle());
+           System.out.println("Source Code :-" +driver.getPageSource());
+           WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+           WebElement emailInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("email")));
+           WebElement nickNameInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("emailInput")));
+           WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
+
+           emailInput.sendKeys("ibrahim@yahoo.com");
+           nickNameInput.sendKeys("hima");
+           submitButton.click();
+           Assert.assertTrue(driver.switchTo().alert().getText().contains("ibrahim@yahoo.com"));
         }
         // @Test
         // public void verifyInformativeMessageWithInvalidEmail() {
