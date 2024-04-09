@@ -27,13 +27,10 @@
         public void verifyUsernameAndNickNameAreWorkCorrectly() {
          // TODO :: write a actions
            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-           WebElement emailInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("email")));
-           WebElement nickNameInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("nickname")));
-           WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-
-           emailInput.sendKeys("ibrahim@yahoo.com");
-           nickNameInput.sendKeys("hima");
-           submitButton.click();
+           driver.findElement(By.id("email")).sendKeys("ibrahimyahoo.com");
+           driver.findElement(By.id("nickname")).sendKeys("ss2");
+           driver.findElement(By.xpath("//button[@type='submit']")).click();
+            
            Assert.assertTrue(driver.switchTo().alert().getText().contains("ibrahim@yahoo.com"));
         }
         // @Test
