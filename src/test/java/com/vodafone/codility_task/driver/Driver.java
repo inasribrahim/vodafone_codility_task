@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
 
 
@@ -28,8 +30,13 @@ public final class Driver {
             DriverManager.setWebDriver(new ChromeDriver(options));
         }
         WebDriver driver = DriverManager.getWebDriver();
-        driver.navigate().to(challengePaths.concat(challengeKey));
-        // Wait until page is loaded (example with 30-second timeout)
+        String htmlContent = "";
+            try {
+                htmlContent = Files.readString(Paths.get(challengePaths.concat(challengeKey)));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        driver.get("data:text/html;charset=utf-8,"+htmlContent);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.urlContains(challengeKey)); // Adjust condition as needed
     } catch (Exception e) {
