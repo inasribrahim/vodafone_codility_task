@@ -5,10 +5,12 @@
     import com.vodafone.codility_task.driver.DriverManager;
     import org.openqa.selenium.*;
     import org.openqa.selenium.WebDriver;
+    import org.openqa.selenium.support.ui.*;
     import org.testng.Assert;
     import org.testng.annotations.*;
-    import org.openqa.selenium.support.ui.*;
+
     import java.io.IOException;
+    import java.time.Duration;
 
     import static com.vodafone.codility_task.driver.Driver.getBrowserName;
     import static com.vodafone.codility_task.driver.Driver.getChallengeOnePath;
