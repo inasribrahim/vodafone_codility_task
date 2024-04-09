@@ -29,7 +29,7 @@ public final class Driver {
         WebDriver driver = DriverManager.getWebDriver();
         driver.navigate().to(challengePaths.concat(challengeKey));
         // Wait until page is loaded (example with 30-second timeout)
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.urlContains(challengeKey)); // Adjust condition as needed
     } catch (Exception e) {
         e.printStackTrace(); 
